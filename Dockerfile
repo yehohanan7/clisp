@@ -31,10 +31,22 @@ RUN apt-get remove -y sbcl
 #Install SBCL from source
 RUN sh install.sh
 
-RUN mkdir /sbcl/custom
-WORKDIR /sbcl
-RUN curl -O http://beta.quicklisp.org/quicklisp.lisp
-ADD etc/install-quicklisp.lisp /sbcl/install-quicklisp.lisp
+
+#Install SLIME from source
+RUN git clone https://github.com/slime/slime.git /slime
+
+ADD etc/sbclrc /root/.sbclrc
+RUN mkdir /root/systems
+WORKDIR /root/systems
+RUN ln -s /slime/swank.asd
+
+
 ADD etc/start-swank.lisp /sbcl/start-swank.lisp
-RUN sbcl --script install-quicklisp.lisp
 ADD etc/swank.sh /usr/local/bin/swank
+
+WORKDIR /sbcl
+#RUN curl -O http://beta.quicklisp.org/quicklisp.lisp
+#ADD etc/install-quicklisp.lisp /sbcl/install-quicklisp.lisp
+#RUN sbcl --script install-quicklisp.lisp
+
+
