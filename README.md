@@ -3,13 +3,9 @@ My common lisp dev environment
 
 Checks out sbcl & slime from source and installs them.
 
-Build the image using
-```bash
-docker build -t clisp .
-```
+This image is published from docker hub, you could start swank just with the below command.
 
-Start swank using
 ```bash
-docker run -i -t -p 4005:4005 clisp swank
+docker run -i -t -p 4005:4005 yehohanan7/clisp swank
 ```
 
