@@ -40,13 +40,9 @@ RUN mkdir /root/systems
 WORKDIR /root/systems
 RUN ln -s /slime/swank.asd
 
-
-ADD etc/start-swank.lisp /sbcl/start-swank.lisp
 ADD etc/swank.sh /usr/local/bin/swank
+ADD etc/start-swank.lisp /sbcl/start-swank.lisp
 
 WORKDIR /sbcl
-#RUN curl -O http://beta.quicklisp.org/quicklisp.lisp
-#ADD etc/install-quicklisp.lisp /sbcl/install-quicklisp.lisp
-#RUN sbcl --script install-quicklisp.lisp
 
 
