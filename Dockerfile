@@ -21,6 +21,7 @@ RUN apt-get --no-install-recommends -y install \
 RUN apt-get install -y sbcl    
 
 #Compile SBCL source
+RUN echo "cloning sbcl"
 RUN git clone git://git.code.sf.net/p/sbcl/sbcl /sbcl
 WORKDIR /sbcl
 RUN sh make.sh
