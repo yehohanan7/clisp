@@ -1,2 +1,2 @@
 #!/bin/bash
-cd /sbcl && sbcl --load start-swank.lisp
+cd /swank && sbcl --load start-swank.lisp

@@ -1,2 +1,0 @@
-(require :asdf)
-(push "/root/systems/" asdf:*central-registry*)
