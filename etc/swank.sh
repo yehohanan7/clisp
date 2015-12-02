@@ -1,2 +1,10 @@
 #!/bin/bash
-mkdir /lisp-projects && cd /lisp-projects && sbcl --load /swank/start-swank.lisp
+workingdir=$1
+
+if [ -z "$1" ]
+then
+    workingdir=/lisp-projects
+fi
+
+echo $workingdir
+cd $workingdir && sbcl --load /swank/start-swank.lisp
